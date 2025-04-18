@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打字速度测试</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter+Bold:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.1.1/dist/progressbar.min.js"></script> <!-- Progressbar.js CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome CDN -->
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-keyboard"></i> 打字速度测试</h1>
+        <div id="quote-display" class="quote-display">
+            <!-- 名言警句将显示在这里 -->
+        </div>
+        <textarea id="user-input" class="user-input" placeholder="开始打字..."></textarea>
+        <div class="timer-container">
+            <span id="timer">00:00</span>
+        </div>
+        <div id="progress-container"></div> <!-- 进度条容器 -->
+        <button id="start-button" class="start-button">开始测试</button>
+        <div id="results" class="results">
+            <!-- 测试结果将显示在这里 -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+body {
+    font-family: 'Inter Bold', sans-serif; /* 修改字体为 Inter Bold */
+    background-color: #1A2333; /* 深空蓝 */
+    color: #E0E0E0; /* 科技银 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #1A2333; /* 深空蓝 */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.15); /* 调整阴影颜色和扩散 */
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid #2c3a47; /* 添加边框 */
+}
+
+h1 {
+    color: #00FF88; /* 标题颜色改为荧光绿 */
+    margin-bottom: 30px;
+    font-family: 'Inter Bold', sans-serif; /* 标题字体 */
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5); /* 添加文字阴影 */
+}
+
+h1 i {
+    margin-right: 10px; /* 图标与文字间距 */
+}
+
+.quote-display {
+    background-color: #2c3a47; /* 保持原背景色或改为深空蓝的变体 */
+    padding: 25px; /* 调整内边距 */
+    border-radius: 5px;
+    margin-bottom: 25px; /* 调整外边距 */
+    font-size: 1.3rem; /* 调整字体大小 */
+    min-height: 120px; /* 调整最小高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    font-family: 'Roboto Mono', monospace; /* 输入区字体 */
+    color: #E0E0E0; /* 科技银 */
+    line-height: 1.6; /* 增加行高 */
+    border: 1px solid #3a4b5c; /* 添加边框 */
+}
+
+.user-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #E0E0E0; /* 科技银边框 */
+    border-radius: 5px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    background-color: #1A2333; /* 深空蓝 */
+    color: #00FF88; /* 输入文字颜色改为荧光绿 */
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace; /* 输入区字体 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+.user-input:focus {
+    outline: none;
+    border-color: #00FF88; /* 荧光绿，表示聚焦 */
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.7); /* 荧光绿阴影增强 */
+}
+
+.timer-container {
+    margin-bottom: 20px;
+    font-size: 1.8rem; /* 调整字体大小 */
+    color: #00FF88; /* 计时器颜色改为荧光绿 */
+    font-family: 'Orbitron', sans-serif; /* 速度数值字体 */
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.5); /* 添加文字阴影 */
+}
+
+.start-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #00FF88; /* 荧光绿 */
+    color: #1A2333; /* 深空蓝文字颜色 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* 添加过渡效果 */
+    font-family: 'Inter Bold', sans-serif; /* 按钮字体 */
+    box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3); /* 添加阴影 */
+}
+
+.start-button:hover {
+    background-color: #00C85D; /* 稍微深一点的荧光绿 */
+    transform: translateY(-2px); /* 悬停时上移 */
+}
+
+.start-button:active {
+    background-color: #00A34A; /* 点击时更深 */
+    transform: translateY(0); /* 点击时恢复位置 */
+}
+
+.results {
+    margin-top: 30px;
+    font-size: 1.3rem; /* 调整字体大小 */
+    color: #E0E0E0; /* 科技银 */
+    font-family: 'Inter Bold', sans-serif; /* 结果显示字体 */
+    line-height: 1.8; /* 增加行高 */
+}
+
+.incorrect {
+    color: #FF4D4D; /* 警示红 */
+    font-style: italic; /* 错误提示斜体 Fira Code */
+    font-family: 'Fira Code', monospace;
+    animation: shake 0.6s; /* 红色震动效果 */
+    border: 1px solid #FF4D4D; /* 红色边框闪烁 */
+    box-shadow: 0 0 5px #FF4D4D;
+    padding: 2px 5px; /* 添加内边距 */
+    border-radius: 3px; /* 添加圆角 */
+}
+
+.correct {
+    color: #00FF88; /* 荧光绿 */
+    border: 1px solid #00FF88; /* 荧光绿边框 */
+    box-shadow: 0 0 5px #00FF88; /* 荧光绿内发光 */
+    padding: 2px 5px; /* 添加内边距 */
+    border-radius: 3px; /* 添加圆角 */
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Progress bar styles */
+#progress-container {
+    margin-top: 20px;
+    height: 10px; /* 进度条高度 */
+    width: 100%;
+    background-color: #2c3a47; /* 进度条背景色 */
+    border-radius: 5px;
+    overflow: hidden; /* 确保进度条填充在圆角内 */
+}
+
+#progress-container .progressbar-text {
+    color: #E0E0E0; /* 进度条文字颜色 */
+    font-size: 0.8rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#progress-container .progressbar-text::after {
+    content: '%'; /* 添加百分号 */
+}
+
+.image-container {
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.header-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+}
+
+.secondary-image {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.secondary-image:hover {
+    opacity: 1;
+}
+
+.image-container-secondary {
+    margin: 15px 0;
+}
+
+#image-container-2 {
+    float: left;
+    margin-right: 20px;
+}
+
+#image-container-3 {
+    float: right;
+    margin-left: 20px;
+}
+
+/* 清除浮动 */
+.quote-display::after {
+    content: "";
+    display: table;
+    clear: both;
+}
