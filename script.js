@@ -78,6 +78,70 @@ function displayResults() {
     const speed = calculateTypingSpeed()
     const accuracy = calculateAccuracy()
     resultsElement.innerText = `速度: ${speed} WPM | 准确率: ${accuracy}%`
+
+    // Save result to history
+    saveResultToHistory(speed, accuracy)
+
+    // Refresh history display
+    loadAndRenderHistory()
+}
+
+function saveResultToHistory(speed, accuracy) {
+    // Create result object
+    const result = {
+        speed: speed,
+        accuracy: accuracy,
+        timestamp: new Date().toISOString()
+    }
+
+    // Get existing history or create new array
+    let history = JSON.parse(localStorage.getItem('typingTestHistory')) || []
+
+    // Add new result to the beginning
+    history.unshift(result)
+
+    // Keep only the last 10 results
+    if (history.length > 10) {
+        history = history.slice(0, 10)
+    }
+
+    // Save back to localStorage
+    localStorage.setItem('typingTestHistory', JSON.stringify(history))
+}
+
+function loadAndRenderHistory() {
+    const history = JSON.parse(localStorage.getItem('typingTestHistory')) || []
+    const historyElement = document.getElementById('history')
+
+    if (!historyElement) return
+
+    // Clear existing content
+    historyElement.innerHTML = ''
+
+    // Create history items
+    history.forEach((result, index) => {
+        const resultDiv = document.createElement('div')
+        resultDiv.className = 'history-item'
+
+        // Format date
+        const date = new Date(result.timestamp)
+        const formattedDate = date.toLocaleString('zh-CN', {
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        })
+
+        resultDiv.innerHTML = `
+            <div class="history-rank">#${index + 1}</div>
+            <div class="history-speed">${result.speed} WPM</div>
+            <div class="history-accuracy">${result.accuracy}%</div>
+            <div class="history-date">${formattedDate}</div>
+        `
+
+        historyElement.appendChild(resultDiv)
+    })
 }
 
 startButton.addEventListener('click', () => {
@@ -125,3 +189,6 @@ userInputElement.addEventListener('input', () => {
 
 
 userInputElement.disabled = true; // 初始禁用输入框
+
+// Load and render history when page loads
+loadAndRenderHistory()
